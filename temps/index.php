@@ -40,12 +40,21 @@
        return (($value - 32) * (5/9));
    }
 }
+function original($type){
+    if($type== "f"){
+       return "c";
+   }
+    elseif ($type== "c"){
+       return "f";
+   }
+}
 
 if (isset($_POST['btnConvert'])) {
 $temp = $_POST['temp'];
 $scale = $_POST['scale'];
 $converted = convert($temp, $scale);
-echo "The original temperature, $temp, converted is $converted.";
+$original = original($scale);
+echo "The original temperature is $temp $original, converted is $converted $scale .";
 }
 ?>
 
